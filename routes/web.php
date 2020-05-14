@@ -33,6 +33,19 @@ Route::post('/b/{user}/print', 'BookingsController@print');
 
 Route::get('view-pdf','PDFController@view');
 
+Route::get('test', function () {
+
+        $user = [
+            'name' => 'Mahedi Hasan',
+            'info' => 'Laravel Developer'
+        ];
+    
+        \Mail::to('mail@codechief.org')->send(new \App\Mail\NewMail($user));
+    
+        dd("success");
+    
+    });
+
 Route::get('/','PostsController@index');
 Route::get('/p/create', 'PostsController@create');
 Route::post('/p', 'PostsController@store');
