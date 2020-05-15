@@ -97,13 +97,32 @@ class BookingsController extends Controller
 
         if($dateDiff > 0){
             
-            auth()->user()->bookings()->create($data);      
+            auth()->user()->bookings()->create($data);   
+
+            $PostsF = Post::find(request('post_id'));
+           
+            $new_book = $PostsF->Bookings->last();
+            
+            $user = [
+                'name' =>  auth()->user()->name,
+                'start' => $new_book->start_date,
+                'end' => $new_book->end_date,
+                'location' => $PostsF->ubication
+            ];
+        
+            \Mail::to(auth()->user()->email)->send(new \App\Mail\NewMail($user));
+         
             return redirect('/b/' . auth()->user()->id);
 
         }else{
            
             return redirect('/p/' . request('post_id'));
         }
+
+
+        
+       
+    
 
     }
 

@@ -40,7 +40,7 @@ Route::get('test', function () {
             'info' => 'Laravel Developer'
         ];
     
-        \Mail::to('mail@codechief.org')->send(new \App\Mail\NewMail($user));
+        \Mail::to('paskidelapaski@gmail.com')->send(new \App\Mail\NewMail($user));
     
         dd("success");
     
