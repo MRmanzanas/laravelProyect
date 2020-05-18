@@ -10,6 +10,7 @@
     <p>Start date {{ $user['start'] }}, End date {{ $user['end'] }} </p>
     <p>Booking location: {{ $user['location'] }}</p>
     <br>
-    <p></p>
+    <p>Have a good one,</p>
+    <p>calvBooking.</p>
 </body>
 </html> 
