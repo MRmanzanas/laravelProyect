@@ -47,7 +47,7 @@ Route::get('test', function () {
     });
 
 Route::get('/','PostsController@index');
-Route::get('/p/create', 'PostsController@create');
+Route::get('/p/create', 'PostsController@create' ,  function () {})->middleware('auth');
 Route::post('/p', 'PostsController@store');
 Route::get('/p/{post}', 'PostsController@show');
 
